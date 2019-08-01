@@ -13,6 +13,10 @@ app.use(express.static(path.join(__dirname, "/client")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get(["/", "/index.html"], (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
 //when client post a data, the middleware takes that 'req' and create the model in 'res'
 //and return to the callback that sends the 'res.locals.data' to the client
 app.post("/comments", dbController.insertComment, (req, res) => {
