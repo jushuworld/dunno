@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3000;
-const dbController = require("./server/dbController");
+const dbController = require("./dbController");
 const cors = require("cors");
 
 app.use(cors());
