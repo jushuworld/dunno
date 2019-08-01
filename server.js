@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3000;
-const dbController = require("./dbController");
+const dbController = require("./server/dbController");
 const cors = require("cors");
 
 app.use(cors());
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + "../client", "/index.js");
+  res.sendFile(__dirname + "/index.js");
 });
 
 //when client post a data, the middleware takes that 'req' and create the model in 'res'
