@@ -13,8 +13,8 @@ app.use(express.static(path.join(__dirname, "/client")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get(["/", "/index.html"], (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/dist/index.html");
 });
 
 //when client post a data, the middleware takes that 'req' and create the model in 'res'
