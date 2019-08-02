@@ -8,13 +8,13 @@ const cors = require("cors");
 
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, "/client")));
+app.use(express.static(path.join(__dirname, "/dist")));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/dist/index.html");
+  res.sendFile(__dirname + "/dist/dunnow/index.html");
 });
 
 //when client post a data, the middleware takes that 'req' and create the model in 'res'
@@ -28,5 +28,5 @@ app.get("/comments", dbController.getComment, (req, res) =>
   res.status(200).json(res.locals.data)
 );
 
-app.listen(PORT, () => console.log(`Running on JUSHUWORLD's SERVER!`));
+app.listen(PORT, () => console.log(`Running on JUSHUWORLD's SERVER! on ${PORT}`));
 
