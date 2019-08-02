@@ -8,13 +8,13 @@ const cors = require("cors");
 
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, "/dist")));
+app.use(express.static(__dirname));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/dist/dunnow/index.html");
+  res.sendFile("./index.html");
 });
 
 //when client post a data, the middleware takes that 'req' and create the model in 'res'
